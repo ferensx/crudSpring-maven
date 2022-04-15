@@ -20,6 +20,11 @@ public class User implements Serializable {
     private String phone;
     private String password;
 
+    public User() {
+    }
+//ESSA PORRA TAVA DANDO ERROR POR ISSO \/
+
+
     public User(long l, int i, String maria, String s, String s1, int i1) {
 
     }
