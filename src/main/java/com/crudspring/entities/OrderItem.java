@@ -1,6 +1,7 @@
 package com.crudspring.entities;
 
 import com.crudspring.entities.pk.OrderItemPk;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -9,12 +10,12 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name ="tb_order_item")
+@Table(name = "tb_order_item")
 public class OrderItem implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @EmbeddedId
-    private OrderItemPk id;
+    private OrderItemPk id = new OrderItemPk();
 
     private Integer quantity;
     private Double price;
@@ -31,6 +32,7 @@ public class OrderItem implements Serializable {
         this.price = price;
     }
 
+    @JsonIgnore
     public Order getOrder() {
         return id.getOrder();
     }
